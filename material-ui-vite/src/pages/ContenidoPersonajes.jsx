@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import { Paper, Typography, Button } from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
