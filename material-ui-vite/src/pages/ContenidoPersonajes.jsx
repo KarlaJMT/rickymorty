@@ -110,7 +110,7 @@ export default function ContenidoPersonajes({ data }) {
                 </Grid>
             )}
 
-            {/* Modal para mostrar los detalles del episodio */}
+            
             <ModalEpisodio
                 open={modalOpen}
                 onClose={handleCloseModal}

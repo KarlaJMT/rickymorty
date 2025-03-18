@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['HOME', 'ABOUT', 'CONTACT'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ComponenteEncabezado() {
