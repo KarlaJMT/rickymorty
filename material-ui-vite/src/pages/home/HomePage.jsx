@@ -5,7 +5,7 @@ import ContenidoPersonajes from '../ContenidoPersonajes';
 
 export default function HomePage() {
     const [textobuscar, setTextoB] = useState('');
-    const [tipoBusqueda, setTipoBusqueda] = useState('name'); // 'name', 'status', 'location', 'episode'
+    const [tipoBusqueda, setTipoBusqueda] = useState('nombre'); // 'nombre', 'estatus', 'ubicacion', 'especie'
     const [datos, setDatos] = useState([]);
 
     const obtenerTodosLosPersonajes = async () => {
@@ -42,8 +42,8 @@ export default function HomePage() {
                     case 'ubicacion':
                         url = `https://rickandmortyapi.com/api/location/?name=${buscar}`;
                         break;
-                    case 'episodio':
-                        url = `https://rickandmortyapi.com/api/episode/?name=${buscar}`;
+                    case 'especie':
+                        url = `https://rickandmortyapi.com/api/character/?species=${buscar}`;
                         break;
                     default:
                         url = `https://rickandmortyapi.com/api/character/?name=${buscar}`;
@@ -51,9 +51,9 @@ export default function HomePage() {
 
                 const response = await fetch(url);
                 const result = await response.json();
-                if (tipoBusqueda === 'location' || tipoBusqueda === 'episode') {
+                if (tipoBusqueda === 'ubicacion') {
                     
-                    const characterUrls = tipoBusqueda === 'ubicacion' ? result.results[0]?.residents : result.results[0]?.characters;
+                    const characterUrls = result.results[0]?.residents;
                     if (characterUrls && characterUrls.length > 0) {
                         const characterResponses = await Promise.all(characterUrls.map(url => fetch(url)));
                         const characterResults = await Promise.all(characterResponses.map(res => res.json()));
@@ -105,7 +105,7 @@ export default function HomePage() {
                             <MenuItem value="nombre">Nombre</MenuItem>
                             <MenuItem value="estatus">Estatus</MenuItem>
                             <MenuItem value="ubicacion">Ubicación</MenuItem>
-                            <MenuItem value="episodio">Episodio</MenuItem>
+                            <MenuItem value="especie">Especie</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
